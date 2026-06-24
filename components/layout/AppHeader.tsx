@@ -4,15 +4,15 @@ import { Badge } from "@/components/ui/Badge";
 
 export function AppHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-surface-950/88 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-[#fff1cc]/15 bg-surface-950/88 backdrop-blur">
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-stellar-cyan text-surface-950">
+          <span className="grid h-10 w-10 place-items-center rounded-[1rem] bg-[#fff1cc] text-surface-950 shadow-[4px_4px_0_#f8614a]">
             <Sparkles className="h-5 w-5" aria-hidden />
           </span>
           <span>
             <span className="block text-sm font-semibold text-white">Stellar DevTools Hub</span>
-            <span className="block text-xs text-slate-400">Testnet utilities</span>
+            <span className="block text-xs text-[#f7deb0]">Character-led testnet tools</span>
           </span>
         </Link>
         <div className="flex items-center gap-3">
