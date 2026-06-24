@@ -7,6 +7,7 @@ import { tools } from "@/lib/constants";
 export default function HomePage() {
   return (
     <div className="space-y-10">
+      {/* TODO(issue #1): Improve this dashboard with richer responsive storytelling, tool grouping, and visual hierarchy. */}
       <section className="grid gap-8 lg:grid-cols-[1fr_0.92fr] lg:items-center">
         <div>
           <p className="inline-flex rounded-full border border-[#fff1cc]/20 bg-[#fff1cc]/10 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-[#f7deb0]">

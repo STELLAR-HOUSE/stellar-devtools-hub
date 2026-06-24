@@ -12,6 +12,7 @@ export async function getAccountBalances(publicKey: string): Promise<DisplayBala
   try {
     const account = await getHorizonServer("testnet").loadAccount(publicKey.trim());
 
+    // TODO(issue #21): Return a typed account-not-found state so UI can link directly to the Testnet Faucet Helper.
     return account.balances.map((balance) => {
       if (balance.asset_type === "native") {
         return {

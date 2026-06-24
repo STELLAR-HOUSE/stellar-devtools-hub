@@ -8,6 +8,9 @@ export interface PaymentRequestInput {
 }
 
 export function createPaymentUri(input: PaymentRequestInput) {
+  // TODO(issue #11): Extract full form validation into a reusable schema with field-level errors.
+  // TODO(issue #12): Align this URI builder with a documented Stellar payment URI format and network/asset metadata.
+  // TODO(issue #17): Add validation tests for destination, amount precision, memo length, and custom asset cases.
   const validation = validatePublicKey(input.destination);
 
   if (!validation.valid) {

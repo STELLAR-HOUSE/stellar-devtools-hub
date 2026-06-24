@@ -1,5 +1,16 @@
 # GitHub Issue Roadmap
 
+## Contributor Expectations For Every Issue
+
+Each issue is intentionally scoped beyond a small visual tweak. A contributor should:
+
+- Find the matching `TODO(issue #x)` comment in the codebase before starting.
+- Update the relevant UI, Stellar utility, documentation, or tests as described.
+- Handle empty, loading, success, and error states when the issue touches a user flow.
+- Keep the anthropomorphic theme consistent across copy, layout, and component behavior.
+- Run `npm run lint` and `npm run build` before opening a pull request.
+- Add or update documentation when the behavior changes.
+
 ## Issue 1
 
 ### Title
@@ -12,7 +23,7 @@ Frontend / UI
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -38,7 +49,7 @@ Stellar SDK / Frontend
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -64,7 +75,7 @@ Stellar SDK / UI
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -90,7 +101,7 @@ Stellar SDK / Frontend
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -116,7 +127,7 @@ Stellar SDK / UX
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -142,7 +153,7 @@ Frontend / Component
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -168,7 +179,7 @@ Wallet Integration
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -194,7 +205,7 @@ Wallet Integration
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -220,7 +231,7 @@ Stellar SDK
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -247,7 +258,7 @@ Stellar SDK
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -273,7 +284,7 @@ Frontend / Stellar UX
 
 ### Difficulty
 
-Beginner
+Advanced
 
 ### Description
 
@@ -299,7 +310,7 @@ Stellar / QR
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -325,7 +336,7 @@ Stellar Testnet
 
 ### Difficulty
 
-Beginner
+Advanced
 
 ### Description
 
@@ -351,7 +362,7 @@ Documentation / Education
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -377,7 +388,7 @@ Frontend / UI
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -403,7 +414,7 @@ Testing
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -429,7 +440,7 @@ Testing
 
 ### Difficulty
 
-Intermediate
+Advanced
 
 ### Description
 
@@ -455,7 +466,7 @@ Developer Experience
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -481,7 +492,7 @@ Developer Experience
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -507,7 +518,7 @@ Documentation
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -533,7 +544,7 @@ UX / Stellar
 
 ### Difficulty
 
-Beginner
+Advanced
 
 ### Description
 
@@ -559,7 +570,7 @@ Frontend
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -585,7 +596,7 @@ Stellar SDK / Frontend
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -611,7 +622,7 @@ Frontend / UX
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 
@@ -637,7 +648,7 @@ Documentation
 
 ### Difficulty
 
-Beginner
+Intermediate
 
 ### Description
 

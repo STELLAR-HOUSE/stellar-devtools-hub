@@ -7,6 +7,7 @@ export function isLikelyTransactionHash(value: string) {
 }
 
 export async function lookupTransaction(hash: string): Promise<TransactionSummary> {
+  // TODO(issue #10): Fetch and normalize transaction operations for display below the transaction summary.
   if (!hash.trim()) {
     throw new Error("Enter a transaction hash.");
   }

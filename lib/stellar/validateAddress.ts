@@ -6,6 +6,8 @@ export interface AddressValidationResult {
 }
 
 export function validatePublicKey(value: string): AddressValidationResult {
+  // TODO(issue #2): Return structured validation codes so the UI can show field-specific recovery guidance.
+  // TODO(issue #16): Add unit tests for empty, malformed, wrong-prefix, checksum, and valid public-key cases.
   const address = value.trim();
 
   if (!address) {

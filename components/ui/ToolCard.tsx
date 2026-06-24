@@ -22,6 +22,7 @@ const statusTone: Record<ToolStatus, "success" | "info" | "warning"> = {
 export function ToolCard({ title, description, character, href, status, icon: Icon }: ToolCardProps) {
   return (
     <Link href={href} className="group block">
+      {/* TODO(issue #1): Extend tool cards with richer status metadata, grouped categories, and accessible hover/focus states. */}
       <Card className="h-full overflow-hidden transition hover:-translate-y-0.5 hover:border-[#f8614a]/50">
         <div className="flex items-start justify-between gap-4">
           <span className="grid h-12 w-12 place-items-center rounded-[1rem] border border-stellar-cyan/25 bg-stellar-cyan/12 text-stellar-cyan shadow-[5px_5px_0_rgba(248,97,74,0.24)]">

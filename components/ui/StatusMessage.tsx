@@ -27,6 +27,7 @@ export function StatusMessage({ type, title, description }: StatusMessageProps) 
   const Icon = icons[type];
 
   return (
+    // TODO(issue #6): Add optional actions, ARIA live-region behavior, and reusable test coverage for async tool feedback.
     <div className={cn("flex gap-3 rounded-[1rem] border p-4 shadow-[4px_4px_0_rgba(255,241,204,0.08)]", statusStyles[type])}>
       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#fff1cc]/12">
         <Icon className="h-5 w-5" aria-hidden />

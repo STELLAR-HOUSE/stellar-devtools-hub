@@ -10,6 +10,7 @@ export function Sidebar() {
 
   return (
     <aside className="hidden w-72 shrink-0 border-r border-[#fff1cc]/12 bg-[#0c0e18]/68 lg:block">
+      {/* TODO(issue #15): Replace the desktop-only sidebar with a responsive navigation system and mobile menu state. */}
       <nav className="sticky top-16 space-y-2 p-4">
         <p className="px-3 text-xs font-extrabold uppercase tracking-wide text-[#f7deb0]">Helper cast</p>
         {tools.map((tool) => {

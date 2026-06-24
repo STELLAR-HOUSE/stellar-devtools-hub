@@ -17,4 +17,4 @@ export function getHorizonServer(network: StellarNetwork = STELLAR_NETWORK) {
   return new Horizon.Server(horizonUrls[network]);
 }
 
-// TODO(issue): Add mainnet/testnet network switch support across Stellar tools.
+// TODO(issue #3): Add a persisted mainnet/testnet switch and pass the selected network into every Horizon call.

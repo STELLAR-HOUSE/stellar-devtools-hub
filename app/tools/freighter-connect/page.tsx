@@ -21,6 +21,7 @@ export default function FreighterConnectPage() {
   const [message, setMessage] = useState({ type: "info" as "info" | "success" | "warning" | "error", text: "The wallet mascot is listening for Freighter in this browser." });
 
   useEffect(() => {
+    // TODO(issue #7): Replace basic browser detection with Freighter API availability, permission, and rejection states.
     const timer = window.setTimeout(() => {
       const detected = Boolean(window.freighterApi);
       setAvailable(detected);
@@ -81,7 +82,7 @@ export default function FreighterConnectPage() {
         title="Mascot training TODO"
         description="Future issues can add network detection, sign transaction demo, and a send test payment demo."
       />
-      {/* TODO(issue): Improve Freighter connection handling and network mismatch warnings. */}
+      {/* TODO(issue #8): Display the active Freighter network and warn when it differs from the selected app network. */}
     </div>
   );
 }

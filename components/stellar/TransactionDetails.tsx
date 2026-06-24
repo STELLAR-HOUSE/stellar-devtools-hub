@@ -12,6 +12,7 @@ export interface TransactionSummary {
 }
 
 export function TransactionDetails({ transaction }: { transaction: TransactionSummary }) {
+  // TODO(issue #9): Expand this summary with explorer links, decoded fee units, network labels, and raw Horizon metadata.
   const rows = [
     ["Hash", truncateMiddle(transaction.hash, 10)],
     ["Ledger", String(transaction.ledger)],

@@ -15,6 +15,7 @@ export default function TestnetFaucetPage() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // TODO(issue #24): Add a shared async loading pattern for faucet, balance, and transaction tools.
     setLoading(true);
 
     try {

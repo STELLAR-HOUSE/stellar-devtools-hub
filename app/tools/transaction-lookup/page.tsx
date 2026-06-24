@@ -17,6 +17,7 @@ export default function TransactionLookupPage() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // TODO(issue #24): Add skeleton loading for transaction detail rows while Horizon responds.
     setLoading(true);
     setTransaction(null);
 

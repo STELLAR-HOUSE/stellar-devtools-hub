@@ -12,6 +12,7 @@ export async function checkTrustline(
   assetCode: string,
   issuerAddress: string
 ): Promise<TrustlineCheck> {
+  // TODO(issue #5): Add network-aware USDC presets and validate issuer/code pairs before Horizon lookup.
   const accountValidation = validatePublicKey(accountAddress);
   const issuerValidation = validatePublicKey(issuerAddress);
 
@@ -54,4 +55,4 @@ export async function checkTrustline(
   }
 }
 
-// TODO(issue): Add USDC trustline preset for Stellar mainnet and testnet.
+// TODO(issue #5): Add USDC trustline preset for Stellar mainnet and testnet.

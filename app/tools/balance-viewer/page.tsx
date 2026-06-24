@@ -20,6 +20,7 @@ export default function BalanceViewerPage() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // TODO(issue #24): Replace button-only loading feedback with skeleton rows and preserved layout height.
     setLoading(true);
     setBalances([]);
 

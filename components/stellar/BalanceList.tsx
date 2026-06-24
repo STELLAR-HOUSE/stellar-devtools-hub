@@ -10,6 +10,7 @@ export interface DisplayBalance {
 export function BalanceList({ balances }: { balances: DisplayBalance[] }) {
   return (
     <div className="space-y-3">
+      {/* TODO(issue #4): Improve asset grouping, precision formatting, and empty/liquidity-pool display states. */}
       {balances.map((balance) => (
         <div
           key={`${balance.assetCode}-${balance.issuer ?? "native"}`}
@@ -19,6 +20,7 @@ export function BalanceList({ balances }: { balances: DisplayBalance[] }) {
             <div>
               <p className="text-sm font-semibold text-white">{balance.assetCode}</p>
               <p className="mt-1 text-xs text-slate-500">
+                {/* TODO(issue #23): Replace simple truncation with a copyable issuer display helper. */}
                 {balance.issuer ? truncateMiddle(balance.issuer) : "Native Stellar asset in the moon wallet"}
               </p>
             </div>

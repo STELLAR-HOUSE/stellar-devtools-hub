@@ -40,7 +40,11 @@ Prefer clear conventional-style commits:
 
 Start with [docs/ISSUES.md](./docs/ISSUES.md). Choose an issue with a difficulty level that matches your experience, then open a GitHub issue or comment on an existing one before starting larger work.
 
+<!-- TODO(issue #18): Add GitHub issue templates and link them from this section once .github/ISSUE_TEMPLATE exists. -->
+
 ## Pull Requests
+
+<!-- TODO(issue #19): Add a pull request template and document the required PR checklist here. -->
 
 PRs should include:
 

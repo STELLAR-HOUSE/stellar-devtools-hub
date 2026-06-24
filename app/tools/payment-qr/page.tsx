@@ -38,6 +38,7 @@ export default function PaymentQrPage() {
   }
 
   async function copyUri() {
+    // TODO(issue #22): Replace direct clipboard calls with a shared copy utility that handles permission failures.
     if (!uri) return;
     await navigator.clipboard.writeText(uri);
     setMessage({ type: "success", text: "Payment URI copied from the rocket assistant." });

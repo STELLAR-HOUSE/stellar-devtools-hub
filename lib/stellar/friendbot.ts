@@ -1,6 +1,7 @@
 import { validatePublicKey } from "@/lib/stellar/validateAddress";
 
 export async function fundTestnetAccount(publicKey: string) {
+  // TODO(issue #13): Return typed Friendbot success/error states, including rate-limit and already-funded hints.
   const validation = validatePublicKey(publicKey);
 
   if (!validation.valid) {
