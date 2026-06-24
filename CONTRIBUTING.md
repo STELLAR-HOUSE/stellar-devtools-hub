@@ -1,0 +1,74 @@
+# Contributing
+
+Thanks for helping improve Stellar DevTools Hub. This project is intentionally modular so contributors can pick focused Stellar, UI, testing, or documentation tasks.
+
+## Clone and Install
+
+```bash
+git clone https://github.com/STELLAR-HOUSE/stellar-devtools-hub.git
+cd stellar-devtools-hub
+npm install
+```
+
+## Run Locally
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Branch Naming
+
+Use short, descriptive branch names:
+
+- `feature/payment-uri-validation`
+- `fix/friendbot-error-state`
+- `docs/vercel-guide`
+- `test/address-validator`
+
+## Commit Style
+
+Prefer clear conventional-style commits:
+
+- `feat: add trustline checker`
+- `fix: handle account not found state`
+- `docs: add Vercel deployment guide`
+- `test: cover address validation`
+
+## Pick an Issue
+
+Start with [docs/ISSUES.md](./docs/ISSUES.md). Choose an issue with a difficulty level that matches your experience, then open a GitHub issue or comment on an existing one before starting larger work.
+
+## Pull Requests
+
+PRs should include:
+
+- What changed
+- Why it changed
+- How you tested it
+- Screenshots for UI changes
+- Any follow-up TODOs
+
+## Code Quality
+
+- Keep tools modular under `app/tools/*`
+- Put Stellar API logic under `lib/stellar/*`
+- Reuse components from `components/ui` and `components/stellar`
+- Do not ask users for secret keys, seed phrases, or private keys
+- Keep testnet-only behavior clearly labeled
+
+## Testing Expectations
+
+Run these before opening a PR:
+
+```bash
+npm run lint
+npm run build
+```
+
+Unit and E2E tests are planned roadmap items. If you add tests, document the command in README.
+
+## Asking for Help
+
+Open a GitHub issue with context, screenshots when relevant, and the exact command or workflow that failed.

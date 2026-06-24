@@ -1,0 +1,86 @@
+# Stellar DevTools Hub
+
+Open-source web toolkit for Stellar developers. The MVP includes address validation, testnet balance inspection, trustline checks, payment QR generation, transaction lookup, Freighter wallet examples, and a Friendbot helper.
+
+## Why This Exists
+
+Stellar developers often need small utilities while learning, testing, or building integrations. Stellar DevTools Hub collects those workflows in one Vercel-friendly Next.js app with clean, modular code that contributors can extend.
+
+## GrantFox Context
+
+This project is being prepared as an open-source Stellar ecosystem project for GrantFox. The goal is to provide a working MVP while keeping the codebase modular and contributor-friendly. Many features are intentionally split into small independent modules so contributors can work on focused issues such as Stellar SDK integrations, UI improvements, testing, documentation, wallet examples, and developer experience improvements.
+
+## Features
+
+- Validate Stellar public addresses with Stellar SDK StrKey checks
+- Inspect Stellar testnet wallet balances through Horizon
+- Check trustlines for issued Stellar assets
+- Generate demo payment QR codes and copyable payment URIs
+- Look up testnet transaction hashes
+- Detect and connect Freighter wallet public keys
+- Fund testnet accounts through Friendbot
+
+## Tech Stack
+
+- Next.js App Router
+- React and TypeScript
+- Tailwind CSS
+- Stellar SDK
+- qrcode
+- lucide-react
+
+## Screenshots
+
+Screenshots will be added after the first Vercel deployment.
+
+## Local Setup
+
+```bash
+git clone https://github.com/STELLAR-HOUSE/stellar-devtools-hub.git
+cd stellar-devtools-hub
+npm install
+```
+
+Copy the example environment file if you want to customize endpoints:
+
+```bash
+cp .env.example .env.local
+```
+
+## Environment Variables
+
+```env
+NEXT_PUBLIC_STELLAR_NETWORK=testnet
+NEXT_PUBLIC_HORIZON_TESTNET_URL=https://horizon-testnet.stellar.org
+NEXT_PUBLIC_HORIZON_MAINNET_URL=https://horizon.stellar.org
+```
+
+The MVP uses testnet by default. Mainnet variables are included for future contributor work.
+
+## Commands
+
+```bash
+npm run dev
+npm run build
+npm run lint
+```
+
+## Deploy on Vercel
+
+1. Import the GitHub repository into Vercel.
+2. Use the default Next.js framework preset.
+3. Set environment variables from `.env.example` if needed.
+4. Keep the build command as `npm run build`.
+5. Deploy.
+
+## Contribution
+
+Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
+
+## Roadmap
+
+See [docs/ROADMAP.md](./docs/ROADMAP.md).
+
+## Issue Ideas
+
+See [docs/ISSUES.md](./docs/ISSUES.md) for contributor-ready GitHub issue ideas.
