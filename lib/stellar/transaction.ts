@@ -30,6 +30,7 @@ export async function lookupTransaction(
       feeCharged: String(transaction.fee_charged),
       createdAt: transaction.created_at,
       successful: transaction.successful,
+      network,
       operationCount: transaction.operation_count
     };
   } catch (error) {
