@@ -7,9 +7,11 @@ import { CharacterPanel } from "@/components/ui/CharacterPanel";
 import { Input } from "@/components/ui/Input";
 import { StatusMessage } from "@/components/ui/StatusMessage";
 import { AddressInput } from "@/components/stellar/AddressInput";
+import { useNetwork } from "@/components/stellar/NetworkProvider";
 import { checkTrustline } from "@/lib/stellar/trustline";
 
 export default function TrustlineCheckerPage() {
+  const { network } = useNetwork();
   const [account, setAccount] = useState("");
   const [assetCode, setAssetCode] = useState("");
   const [issuer, setIssuer] = useState("");
@@ -21,7 +23,7 @@ export default function TrustlineCheckerPage() {
     setLoading(true);
 
     try {
-      const result = await checkTrustline(account, assetCode, issuer);
+      const result = await checkTrustline(account, assetCode, issuer, network);
       setMessage({ type: result.exists ? "success" : "warning", text: result.message });
     } catch (error) {
       setMessage({ type: "error", text: error instanceof Error ? error.message : "Unexpected error." });
@@ -36,7 +38,7 @@ export default function TrustlineCheckerPage() {
         tone="trust"
         eyebrow="Trust inspector"
         title="Trustline Checker"
-        description="The inspector looks for a friendly handshake between an account and an issued asset on Stellar testnet."
+        description={`The inspector looks for a friendly handshake between an account and an issued asset on Stellar ${network}.`}
       />
       <Card>
         <form onSubmit={handleSubmit} className="space-y-5">

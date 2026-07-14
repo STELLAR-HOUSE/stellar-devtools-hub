@@ -7,9 +7,11 @@ import { CharacterPanel } from "@/components/ui/CharacterPanel";
 import { StatusMessage } from "@/components/ui/StatusMessage";
 import { AddressInput } from "@/components/stellar/AddressInput";
 import { BalanceList, type DisplayBalance } from "@/components/stellar/BalanceList";
+import { useNetwork } from "@/components/stellar/NetworkProvider";
 import { getAccountBalances } from "@/lib/stellar/account";
 
 export default function BalanceViewerPage() {
+  const { network } = useNetwork();
   const [address, setAddress] = useState("");
   const [balances, setBalances] = useState<DisplayBalance[]>([]);
   const [message, setMessage] = useState<{ type: "info" | "success" | "error"; text: string }>({
@@ -25,9 +27,9 @@ export default function BalanceViewerPage() {
     setBalances([]);
 
     try {
-      const nextBalances = await getAccountBalances(address);
+      const nextBalances = await getAccountBalances(address, network);
       setBalances(nextBalances);
-      setMessage({ type: "success", text: "The moon wallet opened and counted balances from testnet Horizon." });
+      setMessage({ type: "success", text: `The moon wallet opened and counted balances from ${network} Horizon.` });
     } catch (error) {
       setMessage({ type: "error", text: error instanceof Error ? error.message : "Unexpected error." });
     } finally {
@@ -41,7 +43,7 @@ export default function BalanceViewerPage() {
         tone="moon"
         eyebrow="Moon wallet"
         title="Balance Viewer"
-        description="The moon wallet opens its pockets and shows native XLM plus issued assets from Stellar testnet Horizon."
+        description={`The moon wallet opens its pockets and shows native XLM plus issued assets from Stellar ${network} Horizon.`}
       />
       <Card>
         <form onSubmit={handleSubmit} className="space-y-5">

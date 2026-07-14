@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { CharacterPanel } from "@/components/ui/CharacterPanel";
 import { Input } from "@/components/ui/Input";
+import { useNetwork } from "@/components/stellar/NetworkProvider";
 import { StatusMessage } from "@/components/ui/StatusMessage";
 import { lookupTransaction } from "@/lib/stellar/transaction";
 
 export default function TransactionLookupPage() {
+  const { network } = useNetwork();
   const [hash, setHash] = useState("");
   const [transaction, setTransaction] = useState<TransactionSummary | null>(null);
   const [loading, setLoading] = useState(false);
@@ -22,9 +24,9 @@ export default function TransactionLookupPage() {
     setTransaction(null);
 
     try {
-      const result = await lookupTransaction(hash);
+      const result = await lookupTransaction(hash, network);
       setTransaction(result);
-      setMessage({ type: "success", text: "The detective comet found the transaction in testnet Horizon." });
+      setMessage({ type: "success", text: `The detective comet found the transaction in ${network} Horizon.` });
     } catch (error) {
       setMessage({ type: "error", text: error instanceof Error ? error.message : "Unexpected error." });
     } finally {
@@ -38,7 +40,7 @@ export default function TransactionLookupPage() {
         tone="detective"
         eyebrow="Detective comet"
         title="Transaction Lookup"
-        description="The detective comet follows a transaction hash through Horizon and brings back the important clues."
+        description={`The detective comet follows a transaction hash through Stellar ${network} Horizon and brings back the important clues.`}
       />
       <Card>
         <form onSubmit={handleSubmit} className="space-y-5">
