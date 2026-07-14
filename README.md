@@ -13,11 +13,12 @@ This project is being prepared as an open-source Stellar ecosystem project for G
 ## Features
 
 - Validate Stellar public addresses with Stellar SDK StrKey checks
-- Inspect Stellar testnet wallet balances through Horizon
+- Switch between Stellar testnet and mainnet for Horizon-backed tools
+- Inspect Stellar wallet balances through Horizon
 - Check trustlines for issued Stellar assets
 - Generate demo payment QR codes and copyable payment URIs
-- Look up testnet transaction hashes
-- Detect and connect Freighter wallet public keys
+- Look up transaction hashes on the selected network
+- Detect Freighter wallet public keys and wallet network mismatch states
 - Fund testnet accounts through Friendbot
 
 ## Tech Stack
@@ -57,7 +58,7 @@ NEXT_PUBLIC_HORIZON_TESTNET_URL=https://horizon-testnet.stellar.org
 NEXT_PUBLIC_HORIZON_MAINNET_URL=https://horizon.stellar.org
 ```
 
-The MVP uses testnet by default. Mainnet variables are included for future contributor work.
+The app uses testnet by default and includes a persisted network switch for Horizon-backed tools. The Friendbot faucet remains testnet-only.
 
 ## Commands
 

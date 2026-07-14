@@ -23,6 +23,7 @@
 
 - GitHub issue templates
 - Unit tests for core Stellar utilities
+- Maintainer-led network switch and wallet state improvements
 - E2E tests
 - More Stellar examples
 - More documentation
@@ -30,7 +31,7 @@
 
 ## Phase 4 - Advanced Features
 
-- Mainnet/testnet switch
+- Deeper mainnet/testnet UX and network-specific presets
 - Asset presets
 - USDC trustline helper
 - Soroban examples

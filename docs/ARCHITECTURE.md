@@ -13,16 +13,16 @@ Stellar DevTools Hub is a Next.js App Router application that keeps user-facing 
 ## Current Stellar Workflows
 
 - Address validation uses Stellar SDK `StrKey` checks and never asks for secret keys.
-- Balance viewer loads account balances through Horizon using the configured network helper.
-- Trustline checker validates account and issuer addresses before loading balances.
+- Balance viewer loads account balances through Horizon using the selected network.
+- Trustline checker validates account and issuer addresses before loading balances on the selected network.
 - Payment QR generator validates destination, amount, memo length, and issued asset metadata before generating a URI.
-- Transaction lookup validates hash shape before querying Horizon.
+- Transaction lookup validates hash shape before querying Horizon on the selected network.
 - Testnet faucet calls Friendbot and remains explicitly testnet-only.
-- Freighter Connect is a public-key connection example and does not request signatures or secrets.
+- Freighter Connect is a public-key connection example that displays extension availability, permission state, wallet network, and network mismatch warnings. It does not request signatures or secrets.
 
 ## Network Model
 
-`lib/stellar/horizon.ts` owns the default network and Horizon URLs. The app defaults to testnet unless `NEXT_PUBLIC_STELLAR_NETWORK=mainnet` is provided.
+`lib/stellar/horizon.ts` owns the default network and Horizon URLs. The app defaults to testnet unless `NEXT_PUBLIC_STELLAR_NETWORK=mainnet` is provided. `components/stellar/NetworkProvider.tsx` stores the user's selected network in `localStorage` and passes it into Horizon-backed tool pages.
 
 New Horizon helpers should accept an optional `StellarNetwork` argument and default to `STELLAR_NETWORK`. Testnet-only tools should keep explicit copy that they do not use real funds.
 
@@ -42,7 +42,5 @@ The GitHub Actions workflow runs the same checks on pushes and pull requests.
 
 The project intentionally keeps a contributor roadmap, but maintainer-led development should continue landing complete improvements before expanding the backlog. High-value next steps are:
 
-- Add a real in-app network switch that passes network state through every Horizon helper.
 - Expand unit coverage around account, trustline, and Friendbot error states with mocked network calls.
-- Improve Freighter detection and network mismatch states.
 - Add E2E coverage for the primary tool forms.

@@ -81,6 +81,10 @@ Advanced
 
 Add a global network switch that allows users to choose between Stellar testnet and mainnet.
 
+### Maintainer Status
+
+Completed with a persisted app-level network switch that drives Balance Viewer, Trustline Checker, and Transaction Lookup. Friendbot remains testnet-only by design.
+
 ### Acceptance Criteria
 
 - User can select testnet or mainnet
@@ -185,6 +189,10 @@ Advanced
 
 Improve the Freighter Connect page by detecting wallet availability, connection state, and user rejection.
 
+### Maintainer Status
+
+Completed for extension availability, allowed/connected state, public-key display, and rejection handling.
+
 ### Acceptance Criteria
 
 - App detects if Freighter is installed
@@ -210,6 +218,10 @@ Advanced
 ### Description
 
 Display the active Freighter network and warn users when it does not match the selected app network.
+
+### Maintainer Status
+
+Completed with wallet network display and app-vs-wallet mismatch warning.
 
 ### Acceptance Criteria
 

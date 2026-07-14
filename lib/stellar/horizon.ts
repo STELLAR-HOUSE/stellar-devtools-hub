@@ -16,5 +16,3 @@ export const horizonServer = new Horizon.Server(horizonUrls[STELLAR_NETWORK]);
 export function getHorizonServer(network: StellarNetwork = STELLAR_NETWORK) {
   return new Horizon.Server(horizonUrls[network]);
 }
-
-// TODO(issue #3): Add a persisted mainnet/testnet switch and pass the selected network into every Horizon call.
