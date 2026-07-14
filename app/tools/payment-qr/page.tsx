@@ -15,7 +15,9 @@ import { createPaymentUri } from "@/lib/stellar/paymentUri";
 export default function PaymentQrPage() {
   const [destination, setDestination] = useState("");
   const [amount, setAmount] = useState("");
-  const [asset, setAsset] = useState<"XLM" | "USDC" | "CUSTOM">("XLM");
+  const [asset, setAsset] = useState<"XLM" | "ISSUED">("XLM");
+  const [assetCode, setAssetCode] = useState("");
+  const [assetIssuer, setAssetIssuer] = useState("");
   const [memo, setMemo] = useState("");
   const [uri, setUri] = useState("");
   const [qr, setQr] = useState("");
@@ -25,7 +27,7 @@ export default function PaymentQrPage() {
     event.preventDefault();
 
     try {
-      const nextUri = createPaymentUri({ destination, amount, asset, memo });
+      const nextUri = createPaymentUri({ destination, amount, asset, assetCode, assetIssuer, memo });
       const nextQr = await QRCode.toDataURL(nextUri, { margin: 1, width: 256 });
       setUri(nextUri);
       setQr(nextQr);
@@ -64,14 +66,22 @@ export default function PaymentQrPage() {
               <span className="text-sm font-medium text-slate-200">Asset</span>
               <select
                 value={asset}
-                onChange={(event) => setAsset(event.target.value as "XLM" | "USDC" | "CUSTOM")}
+                onChange={(event) => setAsset(event.target.value as "XLM" | "ISSUED")}
                 className="min-h-12 w-full rounded-[0.95rem] border border-[#fff1cc]/16 bg-[#0b0d16] px-4 text-sm text-white outline-none focus:border-[#fff1cc]/70 focus:ring-2 focus:ring-[#f8614a]/28"
               >
                 <option value="XLM">XLM</option>
-                <option value="USDC">USDC placeholder</option>
-                <option value="CUSTOM">Custom asset placeholder</option>
+                <option value="ISSUED">Issued asset</option>
               </select>
             </label>
+            {asset === "ISSUED" ? (
+              <div className="grid gap-5 md:grid-cols-2">
+                <label className="block space-y-2">
+                  <span className="text-sm font-medium text-slate-200">Asset code</span>
+                  <Input value={assetCode} onChange={(event) => setAssetCode(event.target.value)} placeholder="USDC" />
+                </label>
+                <AddressInput value={assetIssuer} onChange={setAssetIssuer} label="Asset issuer" />
+              </div>
+            ) : null}
             <label className="block space-y-2">
               <span className="text-sm font-medium text-slate-200">Memo optional</span>
               <Input value={memo} onChange={(event) => setMemo(event.target.value)} placeholder="Invoice 1001" />

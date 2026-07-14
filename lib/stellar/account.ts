@@ -1,8 +1,11 @@
-import { getHorizonServer } from "@/lib/stellar/horizon";
+import { getHorizonServer, STELLAR_NETWORK, type StellarNetwork } from "@/lib/stellar/horizon";
 import { validatePublicKey } from "@/lib/stellar/validateAddress";
 import type { DisplayBalance } from "@/components/stellar/BalanceList";
 
-export async function getAccountBalances(publicKey: string): Promise<DisplayBalance[]> {
+export async function getAccountBalances(
+  publicKey: string,
+  network: StellarNetwork = STELLAR_NETWORK
+): Promise<DisplayBalance[]> {
   const validation = validatePublicKey(publicKey);
 
   if (!validation.valid) {
@@ -10,7 +13,7 @@ export async function getAccountBalances(publicKey: string): Promise<DisplayBala
   }
 
   try {
-    const account = await getHorizonServer("testnet").loadAccount(publicKey.trim());
+    const account = await getHorizonServer(network).loadAccount(publicKey.trim());
 
     // TODO(issue #21): Return a typed account-not-found state so UI can link directly to the Testnet Faucet Helper.
     return account.balances.map((balance) => {
@@ -39,7 +42,11 @@ export async function getAccountBalances(publicKey: string): Promise<DisplayBala
     const responseStatus = getResponseStatus(error);
 
     if (responseStatus === 404) {
-      throw new Error("Account not found on Stellar testnet. Fund it with Friendbot first.");
+      throw new Error(
+        network === "testnet"
+          ? "Account not found on Stellar testnet. Fund it with Friendbot first."
+          : "Account not found on Stellar mainnet."
+      );
     }
 
     throw new Error("Could not load account balances from Horizon. Try again in a moment.");

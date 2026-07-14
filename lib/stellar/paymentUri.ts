@@ -3,8 +3,24 @@ import { validatePublicKey } from "@/lib/stellar/validateAddress";
 export interface PaymentRequestInput {
   destination: string;
   amount: string;
-  asset: "XLM" | "USDC" | "CUSTOM";
+  asset: "XLM" | "ISSUED";
+  assetCode?: string;
+  assetIssuer?: string;
   memo?: string;
+}
+
+export function validateAssetCode(value: string) {
+  const assetCode = value.trim().toUpperCase();
+
+  if (!assetCode) {
+    throw new Error("Enter an issued asset code.");
+  }
+
+  if (!/^[a-zA-Z0-9]{1,12}$/.test(assetCode)) {
+    throw new Error("Asset codes must be 1 to 12 letters or numbers.");
+  }
+
+  return assetCode;
 }
 
 export function createPaymentUri(input: PaymentRequestInput) {
@@ -29,9 +45,22 @@ export function createPaymentUri(input: PaymentRequestInput) {
 
   const params = new URLSearchParams({
     destination: input.destination.trim(),
-    amount: input.amount.trim(),
-    asset: input.asset
+    amount: input.amount.trim()
   });
+
+  if (input.asset === "ISSUED") {
+    const assetCode = validateAssetCode(input.assetCode ?? "");
+    const issuerValidation = validatePublicKey(input.assetIssuer ?? "");
+
+    if (!issuerValidation.valid) {
+      throw new Error(`Asset issuer: ${issuerValidation.message}`);
+    }
+
+    params.set("asset_code", assetCode);
+    params.set("asset_issuer", input.assetIssuer?.trim() ?? "");
+  } else {
+    params.set("asset_code", "XLM");
+  }
 
   if (input.memo?.trim()) {
     params.set("memo", input.memo.trim());

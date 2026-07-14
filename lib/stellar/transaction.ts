@@ -1,4 +1,4 @@
-import { getHorizonServer } from "@/lib/stellar/horizon";
+import { getHorizonServer, STELLAR_NETWORK, type StellarNetwork } from "@/lib/stellar/horizon";
 import { getResponseStatus } from "@/lib/stellar/account";
 import type { TransactionSummary } from "@/components/stellar/TransactionDetails";
 
@@ -6,7 +6,10 @@ export function isLikelyTransactionHash(value: string) {
   return /^[a-fA-F0-9]{64}$/.test(value.trim());
 }
 
-export async function lookupTransaction(hash: string): Promise<TransactionSummary> {
+export async function lookupTransaction(
+  hash: string,
+  network: StellarNetwork = STELLAR_NETWORK
+): Promise<TransactionSummary> {
   // TODO(issue #10): Fetch and normalize transaction operations for display below the transaction summary.
   if (!hash.trim()) {
     throw new Error("Enter a transaction hash.");
@@ -17,7 +20,7 @@ export async function lookupTransaction(hash: string): Promise<TransactionSummar
   }
 
   try {
-    const server = getHorizonServer("testnet");
+    const server = getHorizonServer(network);
     const transaction = await server.transactions().transaction(hash.trim()).call();
 
     return {
@@ -31,7 +34,7 @@ export async function lookupTransaction(hash: string): Promise<TransactionSummar
     };
   } catch (error) {
     if (getResponseStatus(error) === 404) {
-      throw new Error("Transaction not found on Stellar testnet.");
+      throw new Error(`Transaction not found on Stellar ${network}.`);
     }
 
     throw new Error("Could not load transaction from Horizon. Try again in a moment.");

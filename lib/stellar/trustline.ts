@@ -1,4 +1,4 @@
-import { getHorizonServer } from "@/lib/stellar/horizon";
+import { getHorizonServer, STELLAR_NETWORK, type StellarNetwork } from "@/lib/stellar/horizon";
 import { validatePublicKey } from "@/lib/stellar/validateAddress";
 import { getResponseStatus } from "@/lib/stellar/account";
 
@@ -10,7 +10,8 @@ export interface TrustlineCheck {
 export async function checkTrustline(
   accountAddress: string,
   assetCode: string,
-  issuerAddress: string
+  issuerAddress: string,
+  network: StellarNetwork = STELLAR_NETWORK
 ): Promise<TrustlineCheck> {
   // TODO(issue #5): Add network-aware USDC presets and validate issuer/code pairs before Horizon lookup.
   const accountValidation = validatePublicKey(accountAddress);
@@ -29,7 +30,7 @@ export async function checkTrustline(
   }
 
   try {
-    const account = await getHorizonServer("testnet").loadAccount(accountAddress.trim());
+    const account = await getHorizonServer(network).loadAccount(accountAddress.trim());
     const normalizedCode = assetCode.trim().toUpperCase();
     const normalizedIssuer = issuerAddress.trim();
     const exists = account.balances.some(
@@ -48,7 +49,11 @@ export async function checkTrustline(
     };
   } catch (error) {
     if (getResponseStatus(error) === 404) {
-      throw new Error("Account not found on Stellar testnet. Fund it before checking trustlines.");
+      throw new Error(
+        network === "testnet"
+          ? "Account not found on Stellar testnet. Fund it before checking trustlines."
+          : "Account not found on Stellar mainnet."
+      );
     }
 
     throw new Error("Could not check trustline through Horizon. Try again shortly.");
