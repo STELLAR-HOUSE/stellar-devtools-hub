@@ -54,6 +54,8 @@ PRs should include:
 - Screenshots for UI changes
 - Any follow-up TODOs
 
+GitHub issue and pull request templates are included under `.github/`.
+
 ## Code Quality
 
 - Keep tools modular under `app/tools/*`
@@ -68,10 +70,11 @@ Run these before opening a PR:
 
 ```bash
 npm run lint
+npm run test
 npm run build
 ```
 
-Unit and E2E tests are planned roadmap items. If you add tests, document the command in README.
+Unit tests are available for core Stellar utilities. E2E tests remain a roadmap item. If you add or change tests, keep the README and CI workflow aligned.
 
 ## Asking for Help
 

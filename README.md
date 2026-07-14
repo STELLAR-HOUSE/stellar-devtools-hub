@@ -8,7 +8,7 @@ Stellar developers often need small utilities while learning, testing, or buildi
 
 ## GrantFox Context
 
-This project is being prepared as an open-source Stellar ecosystem project for GrantFox. The goal is to provide a working MVP while keeping the codebase modular and contributor-friendly. Many features are intentionally split into small independent modules so contributors can work on focused issues such as Stellar SDK integrations, UI improvements, testing, documentation, wallet examples, and developer experience improvements.
+This project is being prepared as an open-source Stellar ecosystem project for GrantFox. The goal is to provide a working MVP while keeping the codebase modular and contributor-friendly. Maintainer-led work now includes tested Stellar validation utilities, CI quality gates, documented architecture, and focused contributor issues for the next layer of improvements.
 
 ## Features
 
@@ -63,9 +63,22 @@ The MVP uses testnet by default. Mainnet variables are included for future contr
 
 ```bash
 npm run dev
+npm run test
 npm run build
 npm run lint
 ```
+
+## Quality Gates
+
+The repository includes unit tests for core Stellar validation and payment URI behavior. Pull requests and pushes to `main` run:
+
+```bash
+npm run lint
+npm run test
+npm run build
+```
+
+See [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) for the code structure and maintainer expectations.
 
 ## Deploy on Vercel
 
@@ -85,7 +98,7 @@ Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
 
 See [docs/ROADMAP.md](./docs/ROADMAP.md).
 
-<!-- TODO(issue #25): Add an architecture overview that maps app/tools, components, and lib/stellar responsibilities. -->
+The architecture overview is available in [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 
 ## Issue Ideas
 

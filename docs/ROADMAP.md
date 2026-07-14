@@ -22,7 +22,7 @@
 ## Phase 3 - Contributor Growth
 
 - GitHub issue templates
-- Unit tests
+- Unit tests for core Stellar utilities
 - E2E tests
 - More Stellar examples
 - More documentation

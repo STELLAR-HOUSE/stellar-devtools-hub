@@ -420,6 +420,10 @@ Intermediate
 
 Add unit tests for the Stellar address validation utility.
 
+### Maintainer Status
+
+Completed in the maintainer-led test coverage pass. Future contributions can expand edge-case coverage.
+
 ### Acceptance Criteria
 
 - Valid public key test exists
@@ -445,6 +449,10 @@ Advanced
 ### Description
 
 Add tests for payment QR generator validation logic.
+
+### Maintainer Status
+
+Completed for destination, amount, memo, native XLM, and issued asset validation. Future contributions can add component-level form tests.
 
 ### Acceptance Criteria
 
@@ -472,6 +480,10 @@ Intermediate
 
 Add GitHub issue templates for feature requests, bug reports, and documentation improvements.
 
+### Maintainer Status
+
+Completed with bug report, feature request, and documentation templates.
+
 ### Acceptance Criteria
 
 - Bug report template exists
@@ -497,6 +509,10 @@ Intermediate
 ### Description
 
 Add a pull request template that helps contributors describe their changes clearly.
+
+### Maintainer Status
+
+Completed with summary, type, validation, screenshots, and notes sections.
 
 ### Acceptance Criteria
 
@@ -653,6 +669,10 @@ Intermediate
 ### Description
 
 Create a documentation page explaining the project architecture and where contributors should add new features.
+
+### Maintainer Status
+
+Completed in `docs/ARCHITECTURE.md`. Future contributions can add diagrams or per-tool extension examples.
 
 ### Acceptance Criteria
 
