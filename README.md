@@ -34,7 +34,7 @@ This project is being prepared as an open-source Stellar ecosystem project for G
 
 Screenshots will be added after the first Vercel deployment.
 
-<!-- TODO(issue #14): Add and link a Stellar basics education page covering public keys, trustlines, Horizon, and networks. -->
+New to Stellar concepts? Read [docs/STELLAR_BASICS.md](./docs/STELLAR_BASICS.md).
 
 ## Local Setup
 
@@ -85,13 +85,7 @@ Security expectations are documented in [SECURITY.md](./SECURITY.md).
 
 ## Deploy on Vercel
 
-<!-- TODO(issue #20): Replace this short section with a full Vercel deployment guide, screenshots, env validation, and common errors. -->
-
-1. Import the GitHub repository into Vercel.
-2. Use the default Next.js framework preset.
-3. Set environment variables from `.env.example` if needed.
-4. Keep the build command as `npm run build`.
-5. Deploy.
+See [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md) for Vercel setup, environment variables, pre-deploy checks, and common deployment errors.
 
 ## Contribution
 

@@ -380,6 +380,10 @@ Intermediate
 
 Add a simple documentation page explaining Stellar public keys, assets, trustlines, Horizon, and testnet.
 
+### Maintainer Status
+
+Completed in `docs/STELLAR_BASICS.md`.
+
 ### Acceptance Criteria
 
 - New docs page exists
@@ -551,6 +555,10 @@ Intermediate
 ### Description
 
 Add a step-by-step guide for deploying Stellar DevTools Hub to Vercel.
+
+### Maintainer Status
+
+Completed in `docs/DEPLOYMENT.md`.
 
 ### Acceptance Criteria
 
